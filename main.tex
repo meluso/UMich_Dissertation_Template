@@ -1,0 +1,99 @@
+% University of Michigan Dissertation LaTeX Template for 2019 -- 2020
+% Created by John Meluso and Shreyas Kousik
+% 9 Jul 2020
+
+% Use the University of Michigan thesis class.
+\documentclass[thesis]{thesis-umich}
+\input{packages}
+
+% If you are using the alpha bibliography style, keep these next three lines in your preamble, so that the references are left-aligned; or, you can comment it out and see what happens
+\makeatletter
+\renewcommand{\@biblabel}[1]{[#1]\hfill}
+\makeatother
+
+% Title of the thesis
+\title{Your Dissertation Title}
+
+% Author name
+\author{Your M. Name}
+
+% Department
+\department{Department of You}
+
+% Year of completion
+\year=2020
+
+% Author email
+\email{youremail@umich.edu}
+
+% Author ORCID iD
+\orcid{0000-0000-0000-0000}
+
+% Frontispiece
+\frontispiece{\includegraphics[width=4in]{front_materials/frontispiece.png}}
+
+% Default style for front pages
+\frontpagestyle{1} % 7 is preferred by Rackham, but should be set individually for each front page
+
+% Dedication (the input [7] determines the style -- 7 is Rackham's preferred style)
+% \hidededication{%
+\dedication[7]{
+    \input{front_materials/dedication}
+}
+
+% Acknowledgments (the input [7] determines the style -- 7 is Rackham's preferred style)
+\acknowledgments[7]{ %
+    \input{front_materials/acknowledgments}
+}
+% This command sets the width of the acknowledgments area as a fraction
+% of the total width of the text area.
+\acknowledgmentswidth{0.8}
+
+% Preface
+\hidepreface
+%\preface[7]{ %
+% Put text here}
+
+% Committee
+\committee{ %
+Professor First Name, Chair \\
+Professor Second Name in Alphabetical Order \\
+Professor Third Name in Alphabetical Order \\
+Professor Fourth Name in Alphabetical Order
+}
+
+% Chair must be entered separately for formatting reasons.
+\chair{Professor First Name}
+%\cochair{Co-chair One \& Co-chair Two}
+
+% Commands to hide or show lists of figures, tables, etc.
+%\hidelistoftables
+%\showlistofprograms
+%\showlistofappendices
+
+
+% Definition of any acronyms used.
+%\acronyms{}
+
+% Some abstract text
+\abstract{
+\input{front_materials/abstract}
+}
+%\hideabstractpagenumber
+
+%% DOCUMENT AREA
+\begin{document}
+
+\input{example_chapter/example_chapter}
+
+% Appendices
+%\appendix
+%\chapter{Methods}
+%\chapter{Other Stuff}
+
+\bibliographystyle{alpha}
+
+% Give this command the relative path to the .bib file.
+\bibliography{references.bib}
+
+\end{document}
