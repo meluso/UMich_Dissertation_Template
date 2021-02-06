@@ -5,3 +5,5 @@ This unofficial University of Michigan Rackham Graduate School dissertation temp
 One of the easiest ways to use it is by downloading the files to your computer and uploading them to [Overleaf.com](https://www.overleaf.com). Otherwise, if you have a paid or group membership on Overleaf, you can [import your cloned version directly](https://www.overleaf.com/learn/how-to/How_do_I_push_a_new_project_to_Overleaf_via_git%3F), although it's less-direct than the title would suggest.
 
 Big thanks also to Suzanne Chou and Shreyas Kousik for your contributions!
+
+Suhak Lee made a few changes for his 2021 Ph.D. thesis that has passed the Rackham criteria. 
