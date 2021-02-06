@@ -651,7 +651,7 @@
  % Set the page formatting.
  \frntpg %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{Dedication}
+ \phantomsection\addcontentsline{toc}{chapter}{DEDICATION}
  % Insert the text and formatting.
  \insertfront{\@dedication %
   }{\@dedicationstyle}{Dedication}{\@dedication@width}
@@ -690,7 +690,7 @@
  % Set the page formatting.
  \frntpg %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{Acknowledgments}
+ \phantomsection\addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
  % Insert the text and formatting.
  \insertfront{\@acknowledgments %
   }{\@acknowledgmentsstyle}{Acknowledgments}{\@acknowledgments@width}
@@ -894,7 +894,7 @@
  % Move to new page.
  \newpage %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Figures} %
+ \phantomsection\addcontentsline{toc}{chapter}{LIST OF FIGURES} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -922,7 +922,7 @@
  % Move to new page.
  \newpage %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Tables} %
+ \phantomsection\addcontentsline{toc}{chapter}{LIST OF TABLES} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -1081,7 +1081,7 @@
  % Add a pdf anchor.
  \phantomsection %
  % Add the page to the table of contents.
- \addcontentsline{toc}{chapter}{Appendices}
+ \addcontentsline{toc}{chapter}{APPENDIX}
  % Stop adding sections to the table of contents.
  \addtocontents{toc}{\setcounter{tocdepth}{1}} %
  % Header for appendices.
@@ -1274,7 +1274,7 @@
   \thispagestyle{empty} %
  \fi %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{Abstract} %
+ \phantomsection\addcontentsline{toc}{chapter}{ABSTRACT} %
  % Extra vertical space
  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  % Center the title area.
@@ -1334,7 +1334,7 @@
  % Create a pdf anchor.
  \phantomsection %
  % Add to table of contents.
- \addcontentsline{toc}{chapter}{Bibliography} %
+ \addcontentsline{toc}{chapter}{BIBLIOGRAPHY} %
  % Load the bibliography.
  \@tex@bibliography{#1} %
 }
@@ -1492,7 +1492,7 @@
  \renewcommand{\thepage}{\arabic{page}} %
  % Add the word 'Chapter' to the table of contents.
  \addtocontents{toc}{\vspace{1.3ex}\noindent %
- {\bf Chapter}\vspace{1.3ex}} %
+ {\bf CHAPTER}\vspace{1.3ex}} %
  % Use the correct formatting.
  \if@umich@thesis %
   % Use 1.5 spacing
