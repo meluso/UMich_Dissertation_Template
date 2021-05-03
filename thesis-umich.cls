@@ -46,6 +46,9 @@
 %%                                  in-dissertation abstract and
 %%                                  abstract that prints at the end.
 %%  2011.04.09 @Derek Dalle       : Convert rac.sty --> thesis.umich.cls
+%%  2021.05.03 @John Meluso       : Updated to include current formatting
+%%                                  requirements from the document
+%%                                  dissertation-handbook.pdf
 %%
 
 %% ---- HEADERS --------------------------------------------------------
