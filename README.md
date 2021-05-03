@@ -1,4 +1,5 @@
-# University of Michigan Rackham Graduate School LaTeX Dissertation Template (unofficial, 2020)
+# University of Michigan Rackham Graduate School LaTeX Dissertation Template (unofficial)
+(Last Updated: May, 2021)
 
 This unofficial University of Michigan Rackham Graduate School dissertation template in LaTeX is based on the work of [Derek J. Dalle](http://www-personal.umich.edu/~dalle/codes/thesis-umich/), but has been updated to reflect Rackham's requirements as of May 2020. The template will likely fall out of sync with Rackham requirements at future times. Please feel free to clone it and fill it with your own work!
 
