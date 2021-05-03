@@ -18,7 +18,7 @@
 \author{Your M. Name}
 
 % Department
-\department{Department of You}
+\department{Field of Degree (e.g. ``Psychology'')}
 
 % Year of completion
 \year=2020
@@ -33,26 +33,17 @@
 \frontispiece{\includegraphics[width=4in]{front_materials/frontispiece.png}}
 
 % Default style for front pages
-\frontpagestyle{1} % 7 is preferred by Rackham, but should be set individually for each front page
+\frontpagestyle{7} % 7 is preferred by Rackham, but should be set individually for each front page
 
 % Dedication (the input [7] determines the style -- 7 is Rackham's preferred style)
 % \hidededication{%
-\dedication[7]{
-    \input{front_materials/dedication}
-}
+\dedication[7]{\input{front_materials/dedication}}
 
 % Acknowledgments (the input [7] determines the style -- 7 is Rackham's preferred style)
-\acknowledgments[7]{ %
-    \input{front_materials/acknowledgments}
-}
-% This command sets the width of the acknowledgments area as a fraction
-% of the total width of the text area.
-\acknowledgmentswidth{0.8}
+\acknowledgments[7]{\input{front_materials/acknowledgments}}
 
 % Preface
-\hidepreface
-%\preface[7]{ %
-% Put text here}
+\preface[7]{\input{front_materials/preface}}
 
 % Committee
 \committee{ %
@@ -67,13 +58,13 @@ Professor Fourth Name in Alphabetical Order
 %\cochair{Co-chair One \& Co-chair Two}
 
 % Commands to hide or show lists of figures, tables, etc.
-%\hidelistoftables
-%\showlistofprograms
-%\showlistofappendices
+\showlistoftables
+\showlistofprograms
+\showlistofappendices
 
 
 % Definition of any acronyms used.
-%\acronyms{}
+\acronyms{}
 
 % Some abstract text
 \abstract{
@@ -84,15 +75,16 @@ Professor Fourth Name in Alphabetical Order
 %% DOCUMENT AREA
 \begin{document}
 
-\input{example_chapter/example_chapter}
+\input{chapters/example_chapter_01}
 % Place your additional chapters here using the \input{} command
+\input{chapters/example_chapter_99}
 
 % Appendices
-%\appendix
-%\chapter{Methods}
-%\chapter{Other Stuff}
+\appendix
+\input{appendices/example_appendix_01}
+\input{appendices/example_appendix_02}
 
-\bibliographystyle{alpha}
+\bibliographystyle{plain}
 
 % Give this command the relative path to the .bib file.
 \bibliography{references.bib}

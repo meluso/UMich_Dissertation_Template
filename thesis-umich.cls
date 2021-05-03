@@ -196,6 +196,9 @@
  \RequirePackage{multicol}
 \fi
 
+% This package allows for appendices after the \appendix command
+\RequirePackage[titletoc]{appendix}
+
 
 %% ---- FORMATTING -----------------------------------------------------
 % Set the page style to fancy.
@@ -427,6 +430,7 @@
 % Command to insert front page matter with styles
 \newcommand{\insertfront}[4]{ %
  % Check the value of the style.
+ 
  \ifthenelse{\equal{#2}{1}}{ %
   % Style 1: plain text
   % Vertical rubber space
@@ -446,6 +450,7 @@
   % Vertical rubber space
   \vspace*{\stretch{2}} %
  }{ %
+ 
  \ifthenelse{\equal{#2}{2}}{ %
   % Style 2: simple bold italic heading
   % Vertical rubber space
@@ -467,6 +472,7 @@
   % Vertical rubber space
   \vspace*{\stretch{2}} %
  }{ %
+ 
  \ifthenelse{\equal{#2}{3}}{ %
   % Style 3: Spread caps heading
   % Vertical rubber space
@@ -488,6 +494,7 @@
   % Vertical rubber space
   \vspace*{\stretch{2}} %
  }{ %
+ 
  \ifthenelse{\equal{#2}{4}}{ %
   % Style 4: lined
   % Vertical rubber space
@@ -511,6 +518,7 @@
   % Vertical rubber space
   \vspace*{\stretch{2}} %
  }{ %
+ 
  \ifthenelse{\equal{#2}{5}}{ %
   % Style 5: bold italic heading with lines
   % Vertical rubber space
@@ -538,6 +546,7 @@
   % Vertical rubber space
   \vspace*{\stretch{2}} %
  }{ %
+ 
  \ifthenelse{\equal{#2}{6}}{ %
   % Style 6: lined with spread caps header
   % Vertical rubber space
@@ -565,14 +574,17 @@
   % Vertical rubber space
   \vspace*{\stretch{2}} %
   }{ %
+  
   \ifthenelse{\equal{#2}{7}}{ %
   % Style 7: simple large bold caps heading
   % Vertical rubber space
   \vspace*{\stretch{1}} %
   % Center on the page.
-  \begin{center} %
+  %\begin{center} %
    % Make a minipage.
-   \begin{minipage}{#4\textwidth} %
+   %\begin{minipage}{#4\textwidth} %
+    % Set paragraphs to be indented
+    \setlength{\parindent}{15pt}
     % Required to use 1.5-spacing for dissertation.
     \if@umich@thesis %
      \onehalfspacing %
@@ -580,12 +592,14 @@
     % Heading
     \begin{center}\textbf{\large\uppercase{#3}}\end{center} %
     % Insert the text.
+    %\hspace{15pt}
     \sloppy #1 %
-   \end{minipage} %
-  \end{center} %
+   %\end{minipage} %
+  %\end{center} %
   % Vertical rubber space
   \vspace*{\stretch{2}} %
  }{ %
+ 
   % Default style: centered
   % Vertical rubber space
   \vspace*{\stretch{1}} %
@@ -628,7 +642,7 @@
 % Command that sets the dedication style
 \newcommand{\@dedicationstyle}{\@frontpagestyle}
 % Command that sets the width of the dedication text area
-\newcommand{\@dedication@width}{0.66}
+\newcommand{\@dedication@width}{1}
 
 % Command to change it from the default
 \newcommand{\dedication}[2][]{ %
@@ -651,7 +665,7 @@
  % Set the page formatting.
  \frntpg %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{Dedication}
+ \phantomsection\addcontentsline{toc}{frontchapter}{Dedication}
  % Insert the text and formatting.
  \insertfront{\@dedication %
   }{\@dedicationstyle}{Dedication}{\@dedication@width}
@@ -664,7 +678,7 @@
 % Command that sets the acknowledgments style
 \newcommand{\@acknowledgmentsstyle}{\@frontpagestyle}
 % Command that sets the width of the acknowledgments text area
-\newcommand{\@acknowledgments@width}{0.66}
+\newcommand{\@acknowledgments@width}{1}
 
 % Command to change it from the default
 \newcommand{\acknowledgments}[2][]{ %
@@ -690,7 +704,7 @@
  % Set the page formatting.
  \frntpg %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{Acknowledgments}
+ \phantomsection\addcontentsline{toc}{frontchapter}{Acknowledgments}
  % Insert the text and formatting.
  \insertfront{\@acknowledgments %
   }{\@acknowledgmentsstyle}{Acknowledgments}{\@acknowledgments@width}
@@ -703,7 +717,7 @@
 % Command that sets the preface style
 \newcommand{\@prefacestyle}{\@frontpagestyle}
 % Command that sets the width of the preface text area
-\newcommand{\@preface@width}{0.75}
+\newcommand{\@preface@width}{1}
 
 % Command to change it from the default
 \newcommand{\preface}[2][]{ %
@@ -729,7 +743,7 @@
  % Set the page formatting.
  \frntpg %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{Preface}
+ \phantomsection\addcontentsline{toc}{frontchapter}{Preface}
  % Insert the text and formatting.
  \insertfront{\@preface %
   }{\@prefacestyle}{Preface}{\@preface@width}
@@ -742,7 +756,7 @@
 % Command that sets the foreword style
 \newcommand{\@forewordstyle}{\@frontpagestyle}
 % Command that sets the width of the foreword text area
-\newcommand{\@foreword@width}{0.66}
+\newcommand{\@foreword@width}{1}
 
 % Command to change it from the default
 \newcommand{\foreword}[2][]{ %
@@ -768,7 +782,7 @@
  % Set the page formatting.
  \frntpg %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{Foreword}
+ \phantomsection\addcontentsline{toc}{frontchapter}{Foreword}
  % Insert the text and formatting.
  \insertfront{\@foreword %
   }{\@forewordstyle}{Foreword}{\@foreword@width}
@@ -781,7 +795,7 @@
 % Command that sets the prologue style
 \newcommand{\@prologuestyle}{\@frontpagestyle}
 % Command that sets the width of the prologue text area
-\newcommand{\@prologue@width}{0.75}
+\newcommand{\@prologue@width}{1}
 
 % Command to change it from the default
 \newcommand{\prologue}[2][]{ %
@@ -807,7 +821,7 @@
  % Set the page formatting.
  \frntpg %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{Prologue}
+ \phantomsection\addcontentsline{toc}{frontchapter}{Prologue}
  % Insert the text and formatting.
  \insertfront{\@prologue %
   }{\@prologuestyle}{Prologue}{\@prologue@width}
@@ -839,6 +853,20 @@
 
 
 %% ---- TENTS ----------------------------------------------
+
+% This sets the formatting for frontchapter entries in the table of contents.
+\newcommand*{\l@frontchapter}[2]{
+ % First add some vertical space.
+ \vskip 1ex plus 1pt minus 1pt
+ % Format the spacing and use dots between title and number.
+ \@dottedtocline{1}{0em}{1.0em} %
+ % Add a bookmark manually for the table of contents.
+ %\pdfbookmark[0]{#1}{\thepage} %
+ % This sets the formatting for the chapter name and page number.
+ {\uppercase{#1}}{#2} %
+ % Add some space below, too.
+ \vskip 1ex}
+
 % This sets the formatting for chapter entries in the table of contents.
 \renewcommand*\l@chapter[2]{ %
  % First add some vertical space.
@@ -849,6 +877,23 @@
  {\textbf{#1}}{\textbf{#2}} %
  % Add some space below, too.
  \vskip 1ex}
+ 
+% Set level of frontchapter
+\providecommand*{\toclevel@frontchapter}{0}%
+ 
+% This sets the formatting for backchapter entries in the table of contents.
+\newcommand*{\l@backchapter}[2]{ %
+ % First add some vertical space.
+ \vskip 1ex plus 1pt minus 1pt
+ % Format the spacing and use dots between title and number.
+ \@dottedtocline{1}{0em}{1.0em} %
+ % This sets the formatting for the chapter name and page number.
+ {\uppercase{#1}}{#2} %
+ % Add some space below, too.
+ \vskip 1ex}
+
+% Set level of backchapter
+\providecommand*{\toclevel@backchapter}{0}%
 
 % These lines set the spacing for other table of contents entries.
 \renewcommand*{\l@section}{\@dottedtocline{2}{2.5em}{2em}}
@@ -894,7 +939,7 @@
  % Move to new page.
  \newpage %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Figures} %
+ \phantomsection\addcontentsline{toc}{frontchapter}{List of Figures} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -922,7 +967,7 @@
  % Move to new page.
  \newpage %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Tables} %
+ \phantomsection\addcontentsline{toc}{frontchapter}{List of Tables} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -955,7 +1000,7 @@
  % Move to new page.
  \newpage %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Maps} %
+ \phantomsection\addcontentsline{toc}{frontchapter}{List of Maps} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -988,7 +1033,7 @@
  % Move to new page.
  \newpage %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Illustrations} %
+ \phantomsection\addcontentsline{toc}{frontchapter}{List of Illustrations} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -1021,7 +1066,7 @@
  % Move to new page.
  \newpage %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Programs} %
+ \phantomsection\addcontentsline{toc}{frontchapter}{List of Programs} %
  % Anchor for pdf
  \phantomsection %
  % Use front page styling.
@@ -1051,7 +1096,7 @@
  % Move to new page.
  \newpage %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Appendices} %
+ \phantomsection\addcontentsline{toc}{frontchapter}{List of Appendices} %
  % Anchor for pdf
  \phantomsection %
  % Use front page styling.
@@ -1080,8 +1125,10 @@
  \setcounter{chapter}{0} %
  % Add a pdf anchor.
  \phantomsection %
+ % Add blank space to table of contents
+ \addtocontents{toc}{\vspace{3.9ex}}
  % Add the page to the table of contents.
- \addcontentsline{toc}{chapter}{Appendices}
+ \addcontentsline{toc}{backchapter}{Appendices}
  % Stop adding sections to the table of contents.
  \addtocontents{toc}{\setcounter{tocdepth}{1}} %
  % Header for appendices.
@@ -1138,7 +1185,7 @@
  % Move to new page.
  \newpage %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Abbreviations} %
+ \phantomsection\addcontentsline{toc}{frontchapter}{List of Abbreviations} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -1177,7 +1224,7 @@
  % Move to new page.
  \newpage %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Acronyms} %
+ \phantomsection\addcontentsline{toc}{frontchapter}{List of Acronyms} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -1216,7 +1263,7 @@
  % Move to new page.
  \newpage %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{List of Symbols} %
+ \phantomsection\addcontentsline{toc}{frontchapter}{List of Symbols} %
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table (thesis only)
@@ -1274,7 +1321,7 @@
   \thispagestyle{empty} %
  \fi %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{chapter}{Abstract} %
+ \phantomsection\addcontentsline{toc}{frontchapter}{Abstract} %
  % Extra vertical space
  \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
  % Center the title area.
@@ -1333,8 +1380,10 @@
  \clearpage %
  % Create a pdf anchor.
  \phantomsection %
+ % Add blank space to table of contents
+ \addtocontents{toc}{\vspace{1.3ex}}
  % Add to table of contents.
- \addcontentsline{toc}{chapter}{Bibliography} %
+ \addcontentsline{toc}{backchapter}{Bibliography} %
  % Load the bibliography.
  \@tex@bibliography{#1} %
 }
@@ -1491,8 +1540,8 @@
  % Use Arabic numerals.
  \renewcommand{\thepage}{\arabic{page}} %
  % Add the word 'Chapter' to the table of contents.
- \addtocontents{toc}{\vspace{1.3ex}\noindent %
- {\bf Chapter}\vspace{1.3ex}} %
+ \addtocontents{toc}{\vspace{3.9ex}\noindent %
+ {\uppercase{Chapter}}\vspace{1.3ex}} %
  % Use the correct formatting.
  \if@umich@thesis %
   % Use 1.5 spacing
