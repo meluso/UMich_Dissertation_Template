@@ -5,6 +5,6 @@ This unofficial University of Michigan Rackham Graduate School dissertation temp
 
 The easiest ways to use it is by using the corresponding [Overleaf Template](https://www.overleaf.com/latex/templates/university-of-michigan-dissertation-template-unofficial/tpnjzndnrzmf) by clicking "Open as Template." Otherwise, you can download the files to your computer and upload them to [Overleaf.com](https://www.overleaf.com) or compile locally if you prefer. If you have a paid or group membership on Overleaf, you can [import your cloned version directly](https://www.overleaf.com/learn/how-to/How_do_I_push_a_new_project_to_Overleaf_via_git%3F), although it's less-direct than the title would suggest.
 
-Big thanks also to Suzanne Chou, Shreyas Kousik, and Suhak Lee for your contributions!
+Big thanks also to Suzanne Chou, Shreyas Kousik, Suhak Lee, and Samuel Hansen for your contributions!
 
 If you're interested in helping us make this the best it can be, please don't hesitate to reach out. We're always happy to discuss ways to improve the template.
