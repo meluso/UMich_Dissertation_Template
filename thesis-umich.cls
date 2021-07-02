@@ -341,9 +341,9 @@
   % Non-justified content
   \begin{flushleft}
    % Heading for the committee
-   \hspace{1in}Doctoral Committee: \\[2ex] %
+   Doctoral Committee: \\[2ex] %
    % Horizontal spacing
-   \hspace{1.5in} %
+   \hspace{0.5in} %
    % Insert the committee (in a box).
    \parbox{4.2in}{\insertcommittee}
   \end{flushleft} %
@@ -581,7 +581,7 @@
   \ifthenelse{\equal{#2}{7}}{ %
   % Style 7: simple large bold caps heading
   % Vertical rubber space
-  \vspace*{\stretch{1}} %
+  \vspace*{1in} %
   % Center on the page.
   %\begin{center} %
    % Make a minipage.
@@ -600,7 +600,7 @@
    %\end{minipage} %
   %\end{center} %
   % Vertical rubber space
-  \vspace*{\stretch{2}} %
+  %\vspace*{\stretch{2}} %
  }{ %
  
   % Default style: centered
