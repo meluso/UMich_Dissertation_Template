@@ -58,13 +58,19 @@ Professor Fourth Name in Alphabetical Order
 %\cochair{Co-chair One \& Co-chair Two}
 
 % Commands to hide or show lists of figures, tables, etc.
+% To hide a list, change the word "show" in the command to "hide".
 \showlistoftables
 \showlistofprograms
 \showlistofappendices
+\showlistofacronyms
 
 
 % Definition of any acronyms used.
-\acronyms{}
+% To add an acronym, add an \acro{}{} command on a new line within the \acronyms{} command. For \acro, field 1 is the acronym and field 2 is the corresponding expression. For example: \acro{TLA}{Three Letter Acronym}.
+\acronyms{
+    \acro{TLA}{Three Letter Acronym}
+    \acro{SOA}{Some Other Acronym}
+}
 
 % Some abstract text
 \abstract{
