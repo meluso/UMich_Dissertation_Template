@@ -2,4 +2,4 @@ The easiest way for you to contribute to this template is by submitting a Pull R
 
 Thanks for your interest and help!
 
-Additional thanks to Jin Ji, Roque D. Oliveira, Jason Gilbert, Derek Dalle, and other unnamed folks who started this template off. Many, many graduate students owe you greatly!
+Additional thanks to Derek Dalle for creating the template, his predecessors Jin Ji, Roque D. Oliveira, and Jason Gilbert, and other unnamed folks who started this template off. Many, many graduate students owe you greatly!
