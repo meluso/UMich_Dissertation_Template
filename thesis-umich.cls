@@ -155,7 +155,8 @@
 \RequirePackage{subcaption}
 
 % This changes the font.
-\RequirePackage{times}
+\RequirePackage{newtxtext}
+\RequirePackage{newtxmath}
 
 % Compress multiple citations
 \RequirePackage{natbib}
