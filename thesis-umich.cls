@@ -159,7 +159,7 @@
 \RequirePackage{newtxmath}
 
 % Compress multiple citations
-\RequirePackage{natbib}
+\RequirePackage[square,numbers]{natbib}
 
 % This package allows the ability to create a 'code' environment.
 \RequirePackage{verbatim}
