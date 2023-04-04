@@ -708,10 +708,10 @@
  % Set the page formatting.
  \frntpg %
  % Add this page to the table of contents.
- \phantomsection\addcontentsline{toc}{frontchapter}{Acknowledgments}
+ \phantomsection\addcontentsline{toc}{frontchapter}{Acknowledgements}
  % Insert the text and formatting.
  \insertfront{\@acknowledgments %
-  }{\@acknowledgmentsstyle}{Acknowledgments}{\@acknowledgments@width}
+  }{\@acknowledgmentsstyle}{Acknowledgements}{\@acknowledgments@width}
 }
 
 
