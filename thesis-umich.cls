@@ -49,6 +49,7 @@
 %%  2021.05.03 @John Meluso       : Updated to include current formatting
 %%                                  requirements from the document
 %%                                  dissertation-handbook.pdf
+%%  2021.05.03 @Samuel Hansen     : Correctly 'acknowledgement' misspeling
 %%
 
 %% ---- HEADERS --------------------------------------------------------
