@@ -6,6 +6,21 @@
 \documentclass[thesis]{thesis-umich}
 \input{packages}
 
+% Set the font styles.
+% The fontspec package works with xelatex, which the tex engine is used by
+% Overleaf.
+\usepackage{fontspec}
+% As of this writing, Rackham does not have strict font requirements, but they
+% suggest "standard fonts" such as Times, Arial, or Times New Roman.
+% Set the below fonts to whatever you like, as long as it's available on your
+% system or in Overleaf.
+% See the Overleaf website for more about font selection:
+% https://www.overleaf.com/learn/latex/XeLaTeX
+% Remove the below \set*font lines to use the default font family (Computer Modern).
+\setromanfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
 % If you are using the alpha bibliography style, keep these next three lines in your preamble, so that the references are left-aligned; or, you can comment it out and see what happens
 \makeatletter
 \renewcommand{\@biblabel}[1]{[#1]\hfill}
