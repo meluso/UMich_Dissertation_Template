@@ -6,20 +6,28 @@
 \documentclass[thesis]{thesis-umich}
 \input{packages}
 
-% Set the font styles.
-% The fontspec package works with xelatex, which the tex engine is used by
-% Overleaf.
-\usepackage{fontspec}
+%--- Set the font styles -----
 % As of this writing, Rackham does not have strict font requirements, but they
 % suggest "standard fonts" such as Times, Arial, or Times New Roman.
-% Set the below fonts to whatever you like, as long as it's available on your
-% system or in Overleaf.
-% See the Overleaf website for more about font selection:
-% https://www.overleaf.com/learn/latex/XeLaTeX
-% Remove the below \set*font lines to use the default font family (Computer Modern).
-\setromanfont{Times New Roman}
-\setsansfont{Arial}
-\setmonofont{Courier New}
+% The fonts available to you depend on the typesetting engine you use, e.g.
+% xelatex, lualatex, or pdflatex.
+% The default font family is Computer Modern, which you can override with
+% packages.
+% Set the font to whatever you like, as long as it's compatible with the tex
+% engine you're using.
+% Info from Overleaf on font selection with:
+%     - xelatex: https://www.overleaf.com/learn/latex/XeLaTeX
+%     - pdflatex: https://www.overleaf.com/learn/latex/Font_typefaces
+%-------------------------------------------------------------------------------
+%--- xelatex -----
+%\usepackage{fontspec}
+%\setromanfont{Times New Roman}
+%\setsansfont{Arial}
+%\setmonofont{Courier New}
+%-------------------------------------------------------------------------------
+%--- pdflatex -----
+%\usepackage{times}
+%-------------------------------------------------------------------------------
 
 % If you are using the alpha bibliography style, keep these next three lines in your preamble, so that the references are left-aligned; or, you can comment it out and see what happens
 \makeatletter
