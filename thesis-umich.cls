@@ -155,10 +155,6 @@
 % This is useful for complex figures.
 \RequirePackage{subcaption}
 
-% This changes the font.
-\RequirePackage{newtxtext}
-\RequirePackage{newtxmath}
-
 % Compress multiple citations
 \RequirePackage{natbib}
 
