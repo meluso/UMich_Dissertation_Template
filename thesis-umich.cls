@@ -182,6 +182,9 @@
 % This package is used for the list of abbreviations
 \RequirePackage{acronym}
 
+% This package is used to support item list customization (for list of symbols)
+\RequirePackage{enumitem}
+
 % This package is for the index, if it is to be used.
 \if@umich@index
  \RequirePackage{makeidx}
@@ -839,7 +842,7 @@
 \newcommand{\showlistofappendices}{\@umich@listofappendicestrue}
 \newcommand{\showlistofabbreviations}{\@umich@listofabbrevstrue}
 \newcommand{\showlistofacronyms}{\@umich@listofacronymstrue}
-\newcommand{\showlistofsymbos}{\@umich@listofsymbolstrue}
+\newcommand{\showlistofsymbols}{\@umich@listofsymbolstrue}
 
 % Commands to hide each of the lists
 \newcommand{\hidelistoffigures}{\@umich@listoffiguresfalse}
@@ -850,7 +853,7 @@
 \newcommand{\hidelistofappendices}{\@umich@listofappendicesfalse}
 \newcommand{\hidelistofabbreviations}{\@umich@listofabbrevsfalse}
 \newcommand{\hidelistofacronyms}{\@umich@listofacronymsfalse}
-\newcommand{\hidelistofsymbos}{\@umich@listofsymbolsfalse}
+\newcommand{\hidelistofsymbols}{\@umich@listofsymbolsfalse}
 
 
 %% ---- TENTS ----------------------------------------------
@@ -1302,9 +1305,9 @@
  \vspace{1ex} %
  % Start the automatic symbols feature.
  \begin{singlespace} %
-  \begin{acronym} %
+  \begin{itemize}[labelwidth={3em}, align=left, leftmargin=3.5em] %
    \@symbols %
-  \end{acronym} %
+  \end{itemize} %
  \end{singlespace} %
 }
 
