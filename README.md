@@ -7,4 +7,4 @@ The easiest way to use it is through the corresponding [Overleaf Template](https
 
 If you're interested in helping us make this the best it can be, please don't hesitate to reach out. We're always happy to discuss ways to improve the template.
 
-NOTE: I'm aware that a recent update to the [Formatting Guidelines](https://rackham.umich.edu/navigating-your-degree/formatting-guidelines/) may requires some updates. If you find something that doesn't match the requirements, let me know (or esepcially offer a fix!!) and I'll get to it as soon as possible. Thank you!
+NOTE: Rackham recently updated their [Formatting Guidelines](https://rackham.umich.edu/navigating-your-degree/formatting-guidelines/). If you find something that doesn't match the requirements, let me know (or esepcially offer a fix!!) and I'll get to it as soon as possible. Thank you!
