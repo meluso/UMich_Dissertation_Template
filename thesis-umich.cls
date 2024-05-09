@@ -277,7 +277,7 @@
 % The fields to be used for the title page
 \renewcommand{\@title}{Insert a Title!}
 \renewcommand{\@author}{Insert an Author!}
-\newcommand{\@degree}{Doctor of Philosophy}
+\newcommand{\@degreetype}{Doctor of Philosophy}
 \newcommand{\@department}{Insert a Department Name!}
 \newcommand{\@committee}{Insert a Committee!}
 \newcommand{\@chair}{Insert a Chair!}
@@ -286,7 +286,7 @@
 % Commands to set the titlepage fields
 \renewcommand{\title}[1]{\renewcommand{\@title}{#1}}
 \renewcommand{\author}[1]{\renewcommand{\@author}{#1}}
-\newcommand{\degree}[1]{\renewcommand{\@degree}{#1}}
+\newcommand{\degreetype}[1]{\renewcommand{\@degreetype}{#1}}
 \newcommand{\department}[1]{\renewcommand{\@department}{#1}}
 \newcommand{\committee}[1]{\renewcommand{\@committee}{#1}}
 \newcommand{\chair}[1]{\renewcommand{\@chair}{#1}}
@@ -295,7 +295,7 @@
 % Commands for the user to be able to use the defined fields.
 \newcommand{\inserttitle}{\@title}
 \newcommand{\insertauthor}{\@author}
-\newcommand{\insertdegree}{\@degree}
+\newcommand{\insertdegreetype}{\@degreetype}
 \newcommand{\insertdepartment}{\@department}
 \newcommand{\insertcommittee}{\@committee}
 \newcommand{\insertchair}{\@chair}
@@ -330,7 +330,7 @@
    A dissertation submitted in partial fulfillment \\ %
    of the requirements for the degree of \\ %
    % Name of degree
-   \insertdegree \\ %
+   \insertdegreetype \\ %
    % Department
    (\insertdepartment) \\ %
    in the University of Michigan \\ %
