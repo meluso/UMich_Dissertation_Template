@@ -27,31 +27,6 @@
 %% thesis-sample.tex.
 %%
 
-%% VERSIONS:
-%%  1988.01.01 @Jin Ji            : Initial version; reportx.sty
-%%  1988.05.19 @Jin Ji            : Unrecorded changes
-%%  1988.12.13 @Jin Ji            : Corrected table of contents to show
-%%                                  "CHAPTER" and also \@makecaption
-%%  1989.01.08 @Jin Ji            : Corrections for section headers
-%%  1989.11.29 @?                 : Removed a spurious command
-%%  1992.07.24 @Roque D. Oliveira : Modified \startappendices to work
-%%                                  with the New Font Selection Scheme.
-%%  2008.09.01 @Jason Gilbert     : Obsolete code removed for
-%%                                  compatibility with LaTeX2e; list of
-%%                                  abbreviations added, made copyright
-%%                                  page cleaner, fixed appendices, 
-%%                                  bibliography, margins, title page,
-%%                                  frontispiece, bottom-center page
-%%                                  numbers, two-side printing, added
-%%                                  in-dissertation abstract and
-%%                                  abstract that prints at the end.
-%%  2011.04.09 @Derek Dalle       : Convert rac.sty --> thesis.umich.cls
-%%  2021.05.03 @John Meluso       : Updated to include current formatting
-%%                                  requirements from the document
-%%                                  dissertation-handbook.pdf
-%%  2021.05.03 @Samuel Hansen     : Correctly 'acknowledgement' misspeling
-%%
-
 %% ---- HEADERS --------------------------------------------------------
 % This prevents the compiler from running on old versions of LaTeX.
 \NeedsTeXFormat{LaTeX2e}
@@ -93,19 +68,12 @@
 % An index is not allowed in dissertations.
 \newif\if@umich@index
 
-% This makes an option for bibliography backrefs.
-\newif\if@umich@backref
-
 % Declare options for the overall layout.
 \DeclareOption{thesis}{\@umich@thesistrue\@umich@reportfalse}
 \DeclareOption{report}{\@umich@reporttrue\@umich@thesisfalse}
 
 % Declare an option for the index.
 \DeclareOption{index}{\@umich@indextrue}
-
-% Declare an option for bibliography backrefs.
-\DeclareOption{backref}{\@umich@backreftrue}
-
 
 % This passes any other options on to the 'report' class.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}%
@@ -1478,38 +1446,22 @@
 %% ---- LINKS ----------------------------------------------------------
 % This loads a package that allows extra colors for links.
 \RequirePackage[usenames,dvipsnames]{xcolor}
-% Custom color for references.
-\definecolor{DarkGreen}{rgb}{0,0.6,0}
 
 % This will make labels and references hyperlinks.
-\if@umich@backref
- % Use references in the bibliography.
- \RequirePackage[pagebackref=true]{hyperref}
-\else
- % Do not use back references.
- \RequirePackage{hyperref}
-\fi
+\RequirePackage{hyperref, href-ul}
 
 % This controls some settings that affect the appearance of links.
-\if@umich@thesis
- % Use black for the main links.
- \hypersetup{ %
+\hypersetup{ %
   colorlinks=true, %
   pdfstartview={FitH}, %
   citecolor=Black, %
   linkcolor=Black, %
   urlcolor=Blue %
- }
-\else
- % Use maroon for the main links.
- \hypersetup{ %
-  colorlinks=true, %
-  pdfstartview={FitH}, %
-  citecolor=DarkGreen, %
-  linkcolor=Maroon, %
-  urlcolor=Blue %
- }
-\fi
+}
+
+% Add underlining to URLs via href-ul
+\renewcommand{\url}[1]{\href{#1}{\nolinkurl{#1}}}
+\urlstyle{same}
 
 
 %% ---- INITIALIZATION -------------------------------------------------
