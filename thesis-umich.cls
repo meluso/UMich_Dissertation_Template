@@ -245,6 +245,7 @@
 % The fields to be used for the title page
 \renewcommand{\@title}{Insert a Title!}
 \renewcommand{\@author}{Insert an Author!}
+\newcommand{\@legalname}{\@author}
 \newcommand{\@degreetype}{Doctor of Philosophy}
 \newcommand{\@department}{Insert a Department Name!}
 \newcommand{\@committee}{Insert a Committee!}
@@ -254,6 +255,7 @@
 % Commands to set the titlepage fields
 \renewcommand{\title}[1]{\renewcommand{\@title}{#1}}
 \renewcommand{\author}[1]{\renewcommand{\@author}{#1}}
+\newcommand{\legalname}[1]{\renewcommand{\@legalname}{#1}}
 \newcommand{\degreetype}[1]{\renewcommand{\@degreetype}{#1}}
 \newcommand{\department}[1]{\renewcommand{\@department}{#1}}
 \newcommand{\committee}[1]{\renewcommand{\@committee}{#1}}
@@ -263,6 +265,7 @@
 % Commands for the user to be able to use the defined fields.
 \newcommand{\inserttitle}{\@title}
 \newcommand{\insertauthor}{\@author}
+\newcommand{\insertlegalname}{\@legalname}
 \newcommand{\insertdegreetype}{\@degreetype}
 \newcommand{\insertdepartment}{\@department}
 \newcommand{\insertcommittee}{\@committee}
@@ -360,7 +363,7 @@
 \newcommand{\insertorcid}{\@orcid}
 
 % Command that holds the name of the copyright holder
-\newcommand{\@copyright}{\@author}
+\newcommand{\@copyright}{\@legalname}
 
 % Command to change it from the default
 \newcommand{\copyrightholder}[1]{\renewcommand{\@copyright}{#1}}
@@ -377,7 +380,7 @@
   % Vertical rubber space
   \ \vfill %
   % Insert the author's name
-  \@author \\[1ex] %
+  \@legalname \\[1ex] %
   % Insert the author's email address
   \@email \\[1ex] %
   % Insert the author's ORCID iD
