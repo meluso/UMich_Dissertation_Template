@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report about an Issue that prevents the template from meeting Rackham's [Formatting Requirements](https://rackham.umich.edu/navigating-your-degree/formatting-guidelines/).
+about: Create a report about why the template doesn't meet Rackham's Formatting Requirements.
 title: "[BUG]"
 labels: bug
 assignees: ''
