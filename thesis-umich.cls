@@ -304,7 +304,7 @@
    \insertdegreetype \\ %
    % Department
    (\insertdepartment) \\ %
-   in the University of Michigan \\ %
+   in The University of Michigan \\ %
    % Year of completion
    \number\year %
   \end{center} %
