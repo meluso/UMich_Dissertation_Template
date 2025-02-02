@@ -1152,7 +1152,7 @@
   % Add a bookmark manually.
   \pdfbookmark[1]{#1}{#1} %
   % Add to list of appendices
-  \addcontentsline{loa}{section}{#1}
+  % \addcontentsline{loa}{section}{#1}
   % Save the section number
   \sectionmark{#1}
   % Issue the start section command
