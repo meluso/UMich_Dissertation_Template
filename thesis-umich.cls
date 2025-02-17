@@ -1087,7 +1087,7 @@
  \vspace{1ex} %
  % Start the automatic table of contents features.
  \begin{singlespace} %
-  \@starttoc{loa}\if@restonecol\twocolumn\fi %
+  \@starttoc{loapp}\if@restonecol\twocolumn\fi %
  \end{singlespace} %
 }
 
@@ -1126,9 +1126,9 @@
  % Add a bookmark manually.
  \pdfbookmark[0]{#1}{#2} %
  % Add sections to the table of contents.
- \addtocontents{loa}{\setcounter{tocdepth}{1}} %
+ \addtocontents{loapp}{\setcounter{tocdepth}{1}} %
  % Add to the list of appendices rather than toc.
- \addcontentsline{loa}{chapter}{\protect\numberline{\thechapter}\space#1} %
+ \addcontentsline{loapp}{chapter}{\protect\numberline{\thechapter}\space#1} %
  % Save the chapter number.
  \chaptermark{#1} %
  % Add extra space to the lists of figures and tables and maps.
@@ -1152,7 +1152,7 @@
   % Add a bookmark manually.
   \pdfbookmark[1]{#1}{#1} %
   % Add to list of appendices
-  % \addcontentsline{loa}{section}{#1}
+  % \addcontentsline{loapp}{section}{#1}
   % Save the section number
   \sectionmark{#1}
   % Issue the start section command
