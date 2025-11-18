@@ -108,6 +108,12 @@
 % This package allows for appendices after the \appendix command
 \RequirePackage[titletoc]{appendix}
 
+% This package allows for adjusting section title formats
+\RequirePackage{titlesec}
+
+% This package allows for any font size
+\RequirePackage{lmodern}
+
 %% ---- FORMATTING -----------------------------------------------------
 % Set the page style to fancy.
 \pagestyle{fancy}
@@ -340,7 +346,9 @@
   % Force 1.5 spacing for front matter sections
   \onehalfspacing
   % Heading
-  \begin{center}\textbf{\large\uppercase{#1}}\end{center} %
+  \centerline{\fontsize{16}{16}\bf \uppercase{#1}}
+  % Add some space after the title.
+  \vspace{2ex}
   % Insert the text.
   \sloppy #2 %
 }
@@ -496,9 +504,9 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table
- \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \vspace*{1in}
  % Add the title
- \centerline{\large\bf TABLE OF CONTENTS} %
+ \centerline{\fontsize{16}{16}\bf TABLE OF CONTENTS} %
  % Add some space after the title.
  \vspace{2ex} %
  % Start the automatic table of contents features.
@@ -520,9 +528,9 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table
- \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \vspace*{1in}
  % Add the title
- \centerline{\large\bf LIST OF FIGURES} %
+ \centerline{\fontsize{16}{16}\bf LIST OF FIGURES} %
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -545,9 +553,9 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table
- \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \vspace*{1in}
  % Add the title
- \centerline{\large\bf LIST OF TABLES} %
+ \centerline{\fontsize{16}{16}\bf LIST OF TABLES} %
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -577,9 +585,9 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table
- \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \vspace*{1in}
  % Add the title
- \centerline{\large\bf LIST OF PROGRAMS} %
+ \centerline{\fontsize{16}{16}\bf LIST OF PROGRAMS} %
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
@@ -605,15 +613,16 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table
- \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \vspace*{1in}
  % Add the title
- \centerline{\large\bf LIST OF APPENDICES} %
+ \centerline{\fontsize{16}{16}\bf LIST OF APPENDICES} %
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic table of contents features.
  \begin{singlespace} %
   \@starttoc{loapp}\if@restonecol\twocolumn\fi %
  \end{singlespace} %
+ \addtocontents{loapp}{\hbox{APPENDIX}}
 }
 
 %% ---- LIST OF ACRONYMS -----------------------------------------------
@@ -639,11 +648,9 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table
- \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \vspace*{1in}
  % Add the title
- \centerline{\large\bf LIST OF ACRONYMS} %
- % Add some space after the title.
- \vspace{1ex} %
+ \centerline{\fontsize{16}{16}\bf LIST OF ACRONYMS} %
  % Start the automatic abbreviations feature.
  \begin{singlespace} %
   \begin{acronym} %
@@ -675,9 +682,9 @@
  % Use front page styling.
  \frntpg %
  % Larger upper margin for first page of table
- \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \vspace*{1in}
  % Add the title
- \centerline{\large\bf LIST OF SYMBOLS} %
+ \centerline{\fontsize{16}{16}\bf LIST OF SYMBOLS} %
  % Add some space after the title.
  \vspace{1ex} %
  % Start the automatic symbols feature.
@@ -726,14 +733,11 @@
  % Add this page to the table of contents.
  \phantomsection\addcontentsline{toc}{frontchapter}{Abstract} %
  % Extra vertical space
- \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \vspace*{1in}
  % Center the title area.
- \begin{center} %
-  % Formatting
-  \large \bfseries
-  % Add the heading.
-  ABSTRACT \\[2ex] %
- \end{center} %
+ \centerline{\fontsize{16}{16}\bf ABSTRACT} %
+ % Add some space after the title.
+ \vspace{2ex} %
  % Insert the abstract text.
  \onehalfspacing %
  % Insert the text.
@@ -799,8 +803,6 @@
 \def\@section@appendix#1{
   % Begin the phantom section to accommodate hyperref package
   \phantomsection
-  % Add a bookmark manually.
-  \pdfbookmark[1]{#1}{#1} %
   % Save the section number
   \sectionmark{#1}
   % Issue the start section command
@@ -809,7 +811,7 @@
     {0pt} %
     {-3.5ex plus -1ex minus -0.2ex} %
     {2.3ex plus 0.2ex} %
-    {\normalfont\Large\bfseries}
+    {\normalfont\fontsize{16}{16}\bfseries}
     {#1} % Add the section title text
   }
 
@@ -818,7 +820,7 @@
 \let\@tex@bibliography\bibliography
 
 % Change the bibliography header.
-\renewcommand*{\bibname}{\centerline{\large BIBLIOGRAPHY}}
+\renewcommand*{\bibname}{\vspace{0.35em}\centerline{\normalfont\fontsize{16}{16}\bfseries BIBLIOGRAPHY}\vspace{-0.35em}}
 
 % Create a new command for the bibliography.
 \renewcommand*{\bibliography}[1]{
@@ -853,7 +855,7 @@
 % Change the formatting of the first page of each chapter.
 \renewcommand{\@makechapterhead}[1]{%
  % Insert an extra top margin.
- \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+ \vspace*{1in}
  % Insert the text
  { %
   % Ensure proper alignment.
@@ -861,15 +863,18 @@
   % Check for chapter overflow.
   \ifnum \c@secnumdepth >\m@ne %
    % CHAPTER and number
-   \centerline{\Large\bf \@chapapp{} \thechapter} \par %
+   \centerline{\fontsize{16}{16}\bf \@chapapp{} \thechapter} \par %
    % Vertical space
    \vskip 0.3in \fi %
    % Insert the title of the chapter.
-   \begin{center} \LARGE\bf #1 \end{center} %
+   \begin{center} \fontsize{16}{16}\bf #1 \end{center} %
    % Vertical space after the title
    \nobreak \vskip 0.3in %
  } %
 }
+
+%% ---- SECTION HEADINGS -----------------------------------------------
+\titleformat{\section}{\vskip 0.5em\fontsize{16}{16}\bfseries}{\thesection}{1em}{}
 
 %% ---- SPACING --------------------------------------------------------
 % This fixes the spacing below captions, which by default can be small.
@@ -877,7 +882,7 @@
 
 %% ---- LINKS ----------------------------------------------------------
 % This loads a package that allows extra colors for links.
-\RequirePackage[usenames,dvipsnames]{xcolor}
+\RequirePackage[dvipsnames]{xcolor}
 
 % This will make labels and references hyperlinks.
 \RequirePackage{hyperref, href-ul}
@@ -901,7 +906,7 @@
  % Insert a title page.
  \titlepage %
  % Change the PDF title.
- \hypersetup{pdftitle=\inserttitle} %
+ \hypersetup{pdftitle=\inserttitle,pdfauthor=\insertauthor} %
  % Insert the frontispiece if there is one.
  \if@umich@frontispiece\frontispiecepage\fi %
  % Insert the copyright page if there is one.
