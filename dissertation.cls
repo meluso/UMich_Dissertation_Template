@@ -4,7 +4,7 @@
 %% provided by the Rackham Graduate School as described at
 %%   <https://rackham.umich.edu/navigating-your-degree/formatting-guidelines/>
 %%
-%% Based on the legacy thesis-umich.cls but simplified to focus on the 
+%% Based on the legacy thesis-umich.cls but simplified to focus on the
 %% current Rackham requirements with extraneous options removed.
 %%
 %% The correct usage of this template is to use it as a documentclass.
@@ -90,8 +90,18 @@
 % This package allows conditional testing of variables.
 \RequirePackage{ifthen}
 
-% This package is used for silly letter spacing
-\RequirePackage{soul}
+% This package is used for silly letter spacing and underlining macros
+\RequirePackage{iftex}
+\ifLuaTeX
+  % soul doesn't function at all under LuaTex, but lua-ul has basic compatibility
+  \RequirePackage[soul]{lua-ul}
+\else
+  \RequirePackage{soul}
+  \ifXeTeX
+    % soul has trouble with XeTeX, but xesoul adds the needed tweaks
+    \RequirePackage{xesoul}
+  \fi
+\fi
 
 % This package is used to generate alternate environments.
 \RequirePackage{float}
@@ -465,10 +475,10 @@
  {\textbf{#1}}{\textbf{#2}} %
  % Add some space below, too.
  \vskip 1ex}
- 
+
 % Set level of frontchapter
 \providecommand*{\toclevel@frontchapter}{0}%
- 
+
 % This sets the formatting for backchapter entries in the table of contents.
 \newcommand*{\l@backchapter}[2]{
  % First add some vertical space.
@@ -885,7 +895,7 @@
 \RequirePackage[dvipsnames]{xcolor}
 
 % This will make labels and references hyperlinks.
-\RequirePackage{hyperref, href-ul}
+\RequirePackage{hyperref}
 
 % This controls some settings that affect the appearance of links.
 \hypersetup{
@@ -896,7 +906,9 @@
   urlcolor=Blue
 }
 
-% Add underlining to URLs via href-ul
+% Add underlining to URLs without href-ul
+\let\oldhref\href
+\renewcommand{\href}[2]{\oldhref{#1}{\ul{#2}}}
 \renewcommand{\url}[1]{\href{#1}{\nolinkurl{#1}}}
 \urlstyle{same}
 
