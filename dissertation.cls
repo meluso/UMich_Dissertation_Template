@@ -884,6 +884,10 @@
 % This loads a package that allows extra colors for links.
 \RequirePackage[dvipsnames]{xcolor}
 
+% This lets long URLs in the bibliography break after hyphens, which the
+% url package disallows by default. It must come before hyperref loads url.
+\PassOptionsToPackage{hyphens}{url}
+
 % This will make labels and references hyperlinks.
 \RequirePackage{hyperref, href-ul}
 
