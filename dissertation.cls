@@ -890,6 +890,16 @@
 % url package disallows by default. It must come before hyperref loads url.
 \PassOptionsToPackage{hyphens}{url}
 
+% Keep \emph italic. href-ul underlines links using ulem, and ulem's default
+% behaviour is to redefine \emph so that emphasised text is underlined
+% rather than italicised. href-ul is meant to suppress that by passing
+% ulem the normalem option, but the releases in between 0.4.0 and 0.5.3
+% dropped it, so whether \emph comes out italic depends on which href-ul
+% your TeX distribution happens to ship. Passing the option here settles
+% it for every version. It does not affect \uline, so underlined links are
+% unchanged.
+\PassOptionsToPackage{normalem}{ulem}
+
 % This will make labels and references hyperlinks.
 \RequirePackage{hyperref, href-ul}
 
