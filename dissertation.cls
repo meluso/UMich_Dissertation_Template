@@ -72,8 +72,10 @@
 % This is useful for complex figures.
 \RequirePackage{subcaption}
 
-% Compress multiple citations
-\RequirePackage{natbib}
+% Compress multiple citations. The numbers option keeps citations numeric
+% ([1], [2]) with the plainnat bibliography style, which is author-year by
+% default. Drop the option if you want author-year citations instead.
+\RequirePackage[numbers]{natbib}
 
 % This package allows the ability to create a 'code' environment.
 \RequirePackage{verbatim}
@@ -900,9 +902,20 @@
   urlcolor=Blue
 }
 
-% Add underlining to URLs via href-ul
-\renewcommand{\url}[1]{\href{#1}{\nolinkurl{#1}}}
+% Make URLs clickable and blue without the href-ul underline. Underlining
+% comes from ulem, which turns the URL into a single unbreakable box and so
+% discards the hyphen break points the url package adds above, pushing long
+% bibliography URLs past the right margin. Calling hyperref's internal
+% directly bypasses the href-ul patch, so only URLs lose the underline;
+% other links still get it.
+\makeatletter
+\renewcommand{\url}[1]{\hyper@linkurl{\nolinkurl{#1}}{#1}}
+\makeatother
 \urlstyle{same}
+
+% plainnat emits \doi{...} for entries with a doi field, but neither natbib
+% nor hyperref defines that command, so define it here as a doi.org link.
+\providecommand{\doi}[1]{doi: \href{https://doi.org/#1}{#1}}
 
 %% ---- INITIALIZATION -------------------------------------------------
 % Commands to be placed after \begin{document}
