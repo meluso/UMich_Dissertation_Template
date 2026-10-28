@@ -902,20 +902,28 @@
   urlcolor=Blue
 }
 
-% Make URLs clickable and blue without the href-ul underline. Underlining
-% comes from ulem, which turns the URL into a single unbreakable box and so
-% discards the hyphen break points the url package adds above, pushing long
-% bibliography URLs past the right margin. Calling hyperref's internal
-% directly bypasses the href-ul patch, so only URLs lose the underline;
-% other links still get it.
+% Make URLs clickable, blue, and breakable across lines. href-ul underlines
+% link text with ulem's \uline, which bundles the URL into a single
+% unbreakable box and so discards the hyphen break points the url package
+% adds above, pushing long URLs past the right margin. Switching off that
+% underline for \url restores the break points. Links written with \href are
+% untouched and stay underlined. \href@underline is href-ul's own hook; the
+% \providecommand means that if href-ul ever renames it, this degrades to
+% underlined-and-overflowing rather than failing to compile.
 \makeatletter
-\renewcommand{\url}[1]{\hyper@linkurl{\nolinkurl{#1}}{#1}}
+\providecommand\href@underline[1]{#1}
+% \@plainlink is \href without the underline, so the link text keeps the
+% break points that url inserts. Use it for anything machine-readable and
+% long; use \href itself for ordinary prose links.
+\DeclareRobustCommand{\@plainlink}[2]{%
+  {\let\href@underline\@firstofone\href{#1}{#2}}%
+}
+\DeclareRobustCommand{\url}[1]{\@plainlink{#1}{\nolinkurl{#1}}}
+% plainnat emits \doi{...} for entries with a doi field, but neither natbib
+% nor hyperref defines that command, so define it here, styled like \url.
+\providecommand{\doi}[1]{doi: \@plainlink{https://doi.org/#1}{\nolinkurl{#1}}}
 \makeatother
 \urlstyle{same}
-
-% plainnat emits \doi{...} for entries with a doi field, but neither natbib
-% nor hyperref defines that command, so define it here as a doi.org link.
-\providecommand{\doi}[1]{doi: \href{https://doi.org/#1}{#1}}
 
 %% ---- INITIALIZATION -------------------------------------------------
 % Commands to be placed after \begin{document}
