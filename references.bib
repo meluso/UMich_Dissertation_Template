@@ -1,12 +1,19 @@
+% Note on capitalization: BibTeX lowercases article, inproceedings, and misc
+% titles unless words are wrapped in braces, so proper nouns are braced below.
+
+% A thesis that lives in an online repository: give the handle as a url.
 @phdthesis{jefferson2019policing,
-  title={\href{https://deepblue.lib.umich.edu/handle/2027.42/149919}{Policing Norms: Punishment and the Politics of Respectability among Black Americans}},
+  title={Policing Norms: Punishment and the Politics of Respectability among {B}lack {A}mericans},
+  url={https://deepblue.lib.umich.edu/handle/2027.42/149919},
   author={Jefferson, Hakeem},
   school={University of Michigan},
   year={2019}
 }
 
+% A published article: give the doi rather than a publisher url.
 @article{shannon1948mathematical,
-  title={\href{https://ieeexplore.ieee.org/abstract/document/6773024}{A mathematical theory of communication}},
+  title={A mathematical theory of communication},
+  doi={10.1002/j.1538-7305.1948.tb01338.x},
   author={Shannon, Claude E},
   journal={The Bell system technical journal},
   volume={27},
@@ -16,8 +23,10 @@
   publisher={Nokia Bell Labs}
 }
 
+% A published conference paper: also cited by doi.
 @inproceedings{ong1997gilbert,
-  title={\href{https://ieeexplore.ieee.org/abstract/document/614298}{The Gilbert-Johnson-Keerthi distance algorithm: A fast version for incremental motions}},
+  title={The {G}ilbert-{J}ohnson-{K}eerthi distance algorithm: A fast version for incremental motions},
+  doi={10.1109/ROBOT.1997.614298},
   author={Ong, Chong Jin and Gilbert, Elmer G},
   booktitle={Proceedings of International Conference on Robotics and Automation},
   volume={2},
@@ -26,9 +35,12 @@
   organization={IEEE}
 }
 
+% A web-only source: give the url and an access date in the note field.
 @misc{the_big_house,
-title={\href{https://www.michiganradio.org/post/michigan-athletic-department-embarrasses-while-trying-fill-seats}{Michigan Athletic Department embarrasses while trying to fill seats}},
-author={Bacon, John U},
-year={2014},
-journal={Michigan Radio}
+  title={{M}ichigan {A}thletic {D}epartment embarrasses while trying to fill seats},
+  url={https://www.michiganradio.org/post/michigan-athletic-department-embarrasses-while-trying-fill-seats},
+  author={Bacon, John U},
+  year={2014},
+  journal={Michigan Radio},
+  note={Accessed 2026-10-28}
 }

@@ -132,7 +132,12 @@ Professor Fourth Name in Alphabetical Order
 \input{appendices/example_appendix_01}
 \input{appendices/example_appendix_02}
 
-\bibliographystyle{plain}
+% plainnat is the same alphabetical style as plain, but it also prints the
+% doi, url, and note fields of each entry. Give published work a doi, give
+% web-only sources a url plus note={Accessed YYYY-MM-DD}, and see
+% references.bib for an example of each. Use unsrtnat instead to order
+% references by first citation rather than alphabetically.
+\bibliographystyle{plainnat}
 
 % Give this command the relative path to the .bib file.
 \bibliography{references.bib}

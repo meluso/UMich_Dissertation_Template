@@ -72,8 +72,10 @@
 % This is useful for complex figures.
 \RequirePackage{subcaption}
 
-% Compress multiple citations
-\RequirePackage{natbib}
+% Compress multiple citations. The numbers option keeps citations numeric
+% ([1], [2]) with the plainnat bibliography style, which is author-year by
+% default. Drop the option if you want author-year citations instead.
+\RequirePackage[numbers]{natbib}
 
 % This package allows the ability to create a 'code' environment.
 \RequirePackage{verbatim}
@@ -884,6 +886,10 @@
 % This loads a package that allows extra colors for links.
 \RequirePackage[dvipsnames]{xcolor}
 
+% This lets long URLs in the bibliography break after hyphens, which the
+% url package disallows by default. It must come before hyperref loads url.
+\PassOptionsToPackage{hyphens}{url}
+
 % This will make labels and references hyperlinks.
 \RequirePackage{hyperref, href-ul}
 
@@ -896,8 +902,78 @@
   urlcolor=Blue
 }
 
-% Add underlining to URLs via href-ul
-\renewcommand{\url}[1]{\href{#1}{\nolinkurl{#1}}}
+% Underlined URLs that can still break across lines.
+%
+% href-ul draws its underline with ulem, and ulem can only break an
+% underline at a space. A long URL has none, so it would run past the right
+% margin. url's own break points do not help either: it typesets in math
+% mode, and ulem deliberately ignores breaks there.
+%
+% So typeset URLs in horizontal mode instead. Walk the string, underline
+% each run of characters between separators, and leave the break
+% opportunity between those runs, outside the underline, where TeX can
+% actually take it. The rules abut, so the underline still reads as
+% continuous. \Url@FormatString is url's own formatting hook, unchanged
+% since url v3.4 (2013) and identical in the TeX Live releases that
+% Overleaf and a current local install use.
+%
+% \url itself is left alone, so it keeps hyperref's verbatim argument
+% scanning and still handles URLs containing % or #.
+\providecommand{\uline}[1]{#1}% in case href-ul was loaded with [plain]
+\let\@realuline\uline
+\newtoks\@urlchunk
+\def\@urlflush{%
+  \edef\@tempa{\the\@urlchunk}%
+  \ifx\@tempa\@empty\else\@realuline{\the\@urlchunk}\fi
+  \@urlchunk{}%
+}
+% The \kern stops neighbouring characters forming ligatures, so a URL
+% containing "fill" does not come out with an fi ligature. Math mode used
+% to prevent that for us.
+\def\@urladd#1{\@urlchunk\expandafter{\the\@urlchunk#1\kern\z@}}
+\def\Url@FormatString{%
+  \UrlFont\@urlchunk{}\expandafter\@urlwalk\Url@String\@nil
+}
+\def\@urlwalk#1{%
+  \ifx#1\@nil
+    \@urlflush \let\@urlnext\relax
+  \else
+    \@urlappend{#1}\@urlbreak{#1}\let\@urlnext\@urlwalk
+  \fi
+  \@urlnext
+}
+% Characters that OT1 would otherwise set as accents rather than as
+% themselves. Math mode used to remap these; horizontal mode must.
+\def\@urlappend#1{%
+  \ifnum`#1=95 \@urladd\textunderscore \else
+  \ifnum`#1=126 \@urladd\textasciitilde \else
+  \ifnum`#1=60 \@urladd\textless \else
+  \ifnum`#1=62 \@urladd\textgreater \else
+  \ifnum`#1=124 \@urladd\textbar \else
+  \ifnum`#1=94 \@urladd\textasciicircum \else
+  \ifnum`#1=92 \@urladd\textbackslash \else
+  \@urladd{#1}\fi\fi\fi\fi\fi\fi\fi
+}
+% End the underlined run after a separator, and allow a line break there.
+% The codes are / - . ? & = and _ .
+\def\@urlbreak#1{%
+  \ifnum`#1=47 \@urlflush\penalty\z@\else
+  \ifnum`#1=45 \@urlflush\penalty\z@\else
+  \ifnum`#1=46 \@urlflush\penalty\z@\else
+  \ifnum`#1=63 \@urlflush\penalty\z@\else
+  \ifnum`#1=38 \@urlflush\penalty\z@\else
+  \ifnum`#1=61 \@urlflush\penalty\z@\else
+  \ifnum`#1=95 \@urlflush\penalty\z@\fi\fi\fi\fi\fi\fi\fi
+}
+% \@plainlink is \href with href-ul's own underline switched off, for link
+% text that the walk above has already underlined piece by piece. Ordinary
+% prose links still use \href and are underlined as a whole.
+\DeclareRobustCommand{\@plainlink}[2]{%
+  {\let\uline\@firstofone\href{#1}{#2}}%
+}
+% plainnat emits \doi{...} for entries with a doi field, but neither natbib
+% nor hyperref defines that command, so define it here, styled like \url.
+\providecommand{\doi}[1]{doi: \@plainlink{https://doi.org/#1}{\nolinkurl{#1}}}
 \urlstyle{same}
 
 %% ---- INITIALIZATION -------------------------------------------------
